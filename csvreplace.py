@@ -37,20 +37,26 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
         print('This is the row we on ')
         print(row)
         print()
-        for key in Japanese2KoreanDict.keys():
+        newRows.append(row) ## add the row here 
+        print (newRows)
+        for key, val in enumerate(Japanese2KoreanDict.keys()):
             if key == row[2]:
                 print ("we got a match")
                 print(key + " and " + row[2])
                 print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
-                newRows.append(row)
-                break ## break out of loop inn keys for that row to go to next row
 
+                ##todo - fix this line so that it replaces it correctly - nested array 
+                ## newRows[val[1]] = Japanese2KoreanDict[key]
+
+                break ## break out of loop inn keys for that row to go to next row
+    print(newRows)
+"""
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
     writer = csv.writer(file1)  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
 
-
+"""
 
 ## open file 1 the actual game file 
 ## loop thorugh each row holding the value for the 1 and 2 index (1 is english and 2 is korean)
