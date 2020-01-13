@@ -14,13 +14,35 @@ file2 = open(full_path + file2Name, encoding='utf-8')
 readerFile2 = csv.reader(file2, delimiter='\t')
 Japanese2KoreanDict = {}
 for row in readerFile2:
-    print (row) ## this prints all rows 
     Japanese2KoreanDict[row[2]] = row[1] ## dictionary is created here 
-print (Japanese2KoreanDict)
-
-
+"""    
+{
+    'KeyKorean1': 'jap1', 
+    'KeyKorean4': 'jap4', 
+    'KeyKorean2': 'jap2', 
+    'KeyKorean10': 'jap10', 
+    'KeyKorean6': 'jap6', 
+    'KeyKorean3': 'jap3', 
+    'KeyKorean100': 'jap100'
+}
+"""
 ## Now we need to loop through file1 (the one we want to replace englsih)
-ReaderFile1 = csv.reader(file1, delimiter='\t')
+readerFile1 = csv.reader(file1, delimiter='\t')
+for row in readerFile1:
+    print('This is the row we on ')
+    print(row)
+    print()
+    for key in Japanese2KoreanDict.keys():
+        if key == row[2]:
+            print ("we got a match")
+            print(key + " and " + row[2])
+            print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
+            break ## break out of loop inn keys for that row to go to next row
+            ## row[1] = Japanese2KoreanDict[key]
+
+
+
+
 
 
 

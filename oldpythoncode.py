@@ -17,3 +17,21 @@ with open(full_path + file1Name, encoding='utf-8') as tsvfile:
             for row2 in readTSV2:
                 print (row2[2])
 """ 
+
+
+"""
+reversed the loop 
+
+for row in readerFile1:
+    for key in Japanese2KoreanDict.keys():
+        print ('This is the key: ' + key)
+        print ('This is the row: ' + row[2])
+        if key == row[2]:
+            print ("we got a match")
+            print(key + " and " + row[2])
+            print() 
+        else:
+            print("go to next row")
+            print(key + " and " + row[2])
+            print() 
+""" 
