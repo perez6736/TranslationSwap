@@ -6,7 +6,7 @@ file1Name = 'DannyTest.csv' ## this file has the english we want to replace
 file2Name = 'DannyTestJap.csv' ## this file has the Japanese we want to save 
 full_path = os.path.expanduser('D:/Desktop/TranslationSwap/')
 
-file1 = open(full_path + file1Name, encoding='utf-8')
+file11 = open(full_path + file1Name, encoding='utf-8')
 file2 = open(full_path + file2Name, encoding='utf-8')
 
 
@@ -26,23 +26,29 @@ for row in readerFile2:
     'KeyKorean100': 'jap100'
 }
 """
+
+######################################################
+
 ## Now we need to loop through file1 (the one we want to replace englsih)
-readerFile1 = csv.reader(file1, delimiter='\t')
-for row in readerFile1:
-    print('This is the row we on ')
-    print(row)
-    print()
-    for key in Japanese2KoreanDict.keys():
-        if key == row[2]:
-            print ("we got a match")
-            print(key + " and " + row[2])
-            print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
-            break ## break out of loop inn keys for that row to go to next row
-            ## row[1] = Japanese2KoreanDict[key]
+with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file1:
+    readerFile1 = csv.reader(file1, delimiter='\t')
+    newRows = [] ## this will have the new row 
+    for row in readerFile1:
+        print('This is the row we on ')
+        print(row)
+        print()
+        for key in Japanese2KoreanDict.keys():
+            if key == row[2]:
+                print ("we got a match")
+                print(key + " and " + row[2])
+                print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
+                newRows.append(row)
+                break ## break out of loop inn keys for that row to go to next row
 
-
-
-
+    file1.seek(0)  # seek to the file begining
+    file1.truncate()  # truncate the rest of the content
+    writer = csv.writer(file1)  # create a CSV writer
+    writer.writerows(newRows)  # write our modified rows
 
 
 
