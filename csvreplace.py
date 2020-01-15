@@ -39,14 +39,14 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
         print()
         newRows.append(row) ## add the row here 
         print (newRows)
-        for key, val in enumerate(Japanese2KoreanDict.keys()): ## fix this 
+        for i, key in enumerate(Japanese2KoreanDict.keys()): ## fix this 
             if key == row[2]:
                 print ("we got a match")
                 print(key + " and " + row[2])
                 print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
 
                 ##todo - fix this line so that it replaces it correctly - nested array 
-                ## newrowsIndex = newRows[val] 
+                ## newrowsIndex = newRows[i] 
                 ## newrowsIndex[1] = Japanese2KoreanDict[key]
 
                 break ## break out of loop inn keys for that row to go to next row
