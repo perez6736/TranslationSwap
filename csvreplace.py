@@ -2,8 +2,8 @@ import csv
 import os
 
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = '/DannyTest.csv' ## this file has the english we want to replace 
-file2Name = '/DannyTestJap.csv' ## this file has the Japanese we want to save 
+file2Name = '/DannyTest.csv' ## this file has the english we want to replace 
+file1Name = '/DannyTestJap.csv' ## this file has the Japanese we want to save 
 full_path = os.getcwd() ## dont hard code directory
 
 file11 = open(full_path + file1Name, encoding='utf-8')
@@ -50,13 +50,13 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
                 newrowsIndex[1] = Japanese2KoreanDict[key]
                 break ## break out of loop inn keys for that row to go to next row
     print(newRows)
-"""
+
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
     writer = csv.writer(file1)  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
 
-"""
+
 
 ## open file 1 the actual game file 
 ## loop thorugh each row holding the value for the 1 and 2 index (1 is english and 2 is korean)
