@@ -9,23 +9,11 @@ full_path = os.getcwd() ## dont hard code directory
 file11 = open(full_path + file1Name, encoding='utf-8')
 file2 = open(full_path + file2Name, encoding='utf-8')
 
-
 ## read the csv file2
 readerFile2 = csv.reader(file2, delimiter='\t')
 Japanese2KoreanDict = {}
 for row in readerFile2:
     Japanese2KoreanDict[row[2]] = row[1] ## dictionary is created here 
-"""    
-{
-    'KeyKorean1': 'jap1', 
-    'KeyKorean4': 'jap4', 
-    'KeyKorean2': 'jap2', 
-    'KeyKorean10': 'jap10', 
-    'KeyKorean6': 'jap6', 
-    'KeyKorean3': 'jap3', 
-    'KeyKorean100': 'jap100'
-}
-"""
 
 ######################################################
 
