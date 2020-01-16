@@ -2,8 +2,8 @@ import csv
 import os
 
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = 'DannyTest.csv' ## this file has the english we want to replace 
-file2Name = 'DannyTestJap.csv' ## this file has the Japanese we want to save 
+file1Name = '/DannyTest.csv' ## this file has the english we want to replace 
+file2Name = '/DannyTestJap.csv' ## this file has the Japanese we want to save 
 full_path = os.getcwd() ## dont hard code directory
 
 file11 = open(full_path + file1Name, encoding='utf-8')
