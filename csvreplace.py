@@ -2,8 +2,8 @@ import csv
 import os
 
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = '/DannyTestJap.csv' ## this file has the japanese korean and we want to replace the japanese
-file2Name = '/DannyTest.csv' ## this file has the english we want to use to replace the japanese. 
+file1Name = 'Japanese/UI.tsv' ## this file has the japanese korean and we want to replace the japanese
+file2Name = 'English/UI.tsv' ## this file has the english we want to use to replace the japanese. 
 full_path = os.getcwd() ## dont hard code directory
 
 file11 = open(full_path + file1Name, encoding='utf-8')
@@ -41,7 +41,7 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
 
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
-    writer = csv.writer(file1)  # create a CSV writer
+    writer = csv.writer(file1, delimiter='\t')  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
 
 
