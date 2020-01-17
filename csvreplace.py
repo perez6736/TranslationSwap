@@ -2,11 +2,11 @@ import csv
 import os
 
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = 'Japanese/UI.tsv' ## this file has the japanese korean and we want to replace the japanese
-file2Name = 'English/UI.tsv' ## this file has the english we want to use to replace the japanese. 
+file1Name = '/Japanese/SKILL.tsv' ## this file has the japanese korean and we want to replace the japanese
+file2Name = '/English/SKILL.tsv' ## this file has the english we want to use to replace the japanese. 
 full_path = os.getcwd() ## dont hard code directory
 
-file11 = open(full_path + file1Name, encoding='utf-8')
+## file11 = open(full_path + file1Name, encoding='utf-8')
 file2 = open(full_path + file2Name, encoding='utf-8')
 
 ## read the csv file2
@@ -22,29 +22,23 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
     readerFile1 = csv.reader(file1, delimiter='\t')
     newRows = [] ## this will have the new row 
     for i, row in enumerate(readerFile1):
-        print('This is the row we on ')
-        print(row)
-        print()
         newRows.append(row) ## add the row here 
-        print (newRows)
         for key in Japanese2KoreanDict.keys(): ## fix this 
             if key == row[2]:
-                print ("we got a match")
-                print(key + " and " + row[2])
-                print(row[1] + ' turns into ' + Japanese2KoreanDict[key])
-
-                ##todo - fix this line so that it replaces it correctly - nested array 
                 newrowsIndex = newRows[i] 
                 newrowsIndex[1] = Japanese2KoreanDict[key]
                 break ## break out of loop inn keys for that row to go to next row
-    print(newRows)
-
+    if i == (readerFile1.length/4) * 3:
+        print("75%% done")
+    if i == readerFile1.length/2:
+        print("50%% done")
+    if i == readerFile1.length/4:
+        print("25%% done")
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
     writer = csv.writer(file1, delimiter='\t')  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
-
-
+    print ("finished.")
 
 ## open file 1 the actual game file 
 ## loop thorugh each row holding the value for the 1 and 2 index (1 is english and 2 is korean)
