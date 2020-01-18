@@ -36,15 +36,9 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
         print("25%% done")
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
-<<<<<<< HEAD
     writer = csv.writer(file1, delimiter='\t')  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
     print ("finished.")
-=======
-    ## make it so it wirtes rows with tab delims 
-    writer = csv.writer(file1)  # create a CSV writer
-    writer.writerows(newRows)  # write our modified rows
->>>>>>> 3093f9f6ec74b7cbe128c4a1ab026b1673d6b5cd
 
 ## open file 1 the actual game file 
 ## loop thorugh each row holding the value for the 1 and 2 index (1 is english and 2 is korean)
