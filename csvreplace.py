@@ -3,8 +3,8 @@ import os
 
 print ("working...")
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = '/DannyTestJap.csv' ## this file has the japanese korean and we want to replace the japanese
-file2Name = '/DannyTest.csv' ## this file has the english we want to use to replace the japanese. 
+file1Name = '/Japanese/INTL.tsv' ## this file has the japanese korean and we want to replace the japanese
+file2Name = '/English/INTL.tsv' ## this file has the english we want to use to replace the japanese. 
 full_path = os.getcwd() ## dont hard code directory
 
 ## file11 = open(full_path + file1Name, encoding='utf-8')
@@ -27,7 +27,6 @@ with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file
     for i, row in enumerate(readerFile1):
         newRows.append(row) ## add the row here 
         if len(row) >=3:
-            print (len(row))
             for key in Japanese2KoreanDict.keys():
                 if key == row[2]: ## some file dont have a index 2 in the row.... need to skip those 
                     newrowsIndex = newRows[i] 
