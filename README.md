@@ -9,3 +9,4 @@ However, The ID in the English file does not match what the game uses - the ID i
 So we need to swap the Japanese with the English using the Korean as the main key. 
 
 How to make it work - 
+
