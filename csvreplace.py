@@ -1,9 +1,10 @@
 import csv
 import os
 
+print ("working...")
 ## i would hope you can just swap the name of the files here to customize a bit 
-file1Name = '/Japanese/SKILL.tsv' ## this file has the japanese korean and we want to replace the japanese
-file2Name = '/English/SKILL.tsv' ## this file has the english we want to use to replace the japanese. 
+file1Name = '/DannyTestJap.csv' ## this file has the japanese korean and we want to replace the japanese
+file2Name = '/DannyTest.csv' ## this file has the english we want to use to replace the japanese. 
 full_path = os.getcwd() ## dont hard code directory
 
 ## file11 = open(full_path + file1Name, encoding='utf-8')
@@ -13,31 +14,31 @@ file2 = open(full_path + file2Name, encoding='utf-8')
 readerFile2 = csv.reader(file2, delimiter='\t')
 Japanese2KoreanDict = {}
 for row in readerFile2:
-    Japanese2KoreanDict[row[2]] = row[1] ## dictionary is created here 
+    if len(row) > 1:
+        Japanese2KoreanDict[row[2]] = row[1] ## dictionary is created here 
+print ("dictionary created. ")
 
 ######################################################
-
+print ("translating. please wait. ")
 ## Now we need to loop through file1 (the one we want to replace englsih)
 with open(full_path + file1Name,mode='r+', encoding='utf-8', newline='') as file1:
     readerFile1 = csv.reader(file1, delimiter='\t')
     newRows = [] ## this will have the new row 
     for i, row in enumerate(readerFile1):
         newRows.append(row) ## add the row here 
-        for key in Japanese2KoreanDict.keys(): ## fix this 
-            if key == row[2]:
-                newrowsIndex = newRows[i] 
-                newrowsIndex[1] = Japanese2KoreanDict[key]
-                break ## break out of loop inn keys for that row to go to next row
-    if i == (readerFile1.length/4) * 3:
-        print("75%% done")
-    if i == readerFile1.length/2:
-        print("50%% done")
-    if i == readerFile1.length/4:
-        print("25%% done")
+        if len(row) >=3:
+            print (len(row))
+            for key in Japanese2KoreanDict.keys():
+                if key == row[2]: ## some file dont have a index 2 in the row.... need to skip those 
+                    newrowsIndex = newRows[i] 
+                    newrowsIndex[1] = Japanese2KoreanDict[key]
+                    break ## break out of loop inn keys for that row to go to next row
+
     file1.seek(0)  # seek to the file begining
     file1.truncate()  # truncate the rest of the content
     writer = csv.writer(file1, delimiter='\t')  # create a CSV writer
     writer.writerows(newRows)  # write our modified rows
+    print (i)
     print ("finished.")
 
 ## open file 1 the actual game file 
