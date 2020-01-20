@@ -9,6 +9,7 @@ However, The ID in the English file does not match what the game uses - the ID i
 So we need to swap the Japanese with the English using the Korean as the main key. 
 
 How to make it work - 
+Install python 3 on your machine. 
 
 ![variableinstructions](https://user-images.githubusercontent.com/15853331/72677641-ff176f80-3ae1-11ea-83fe-918d861df290.PNG)
 
@@ -16,4 +17,4 @@ Change the value of the variable to the csv or tsv file you want to translate
 File1name will be the file with the japanese you want to translate to english 
 File2name will be the file with the English you want to use to replace the japanese. 
 
-After that you just run the script and it will swap the values in the english file. 
+After that you just run the script and it will swap the values in the japanese file. 
