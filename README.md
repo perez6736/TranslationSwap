@@ -1,6 +1,9 @@
 # TranslationSwap
 This is a tool in python that will swap the english to japanese between two csv files using the matching korean as a key. 
 
+Tech
+- Python 
+
 Problem - 
 One csv file has Korean to English 
 One file has Korean to Japanese 
