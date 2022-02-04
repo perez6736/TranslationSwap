@@ -1,6 +1,8 @@
 # TranslationSwap
 This is a tool in python that will swap the english to japanese between two csv files using the matching korean as a key. 
 
+Why? - ID used in the game was not correct or present in the Korean to English csv file. So in order to get correct English translation in the game we would need to swap the Japanese in the Japanese/Korean csv file with Englsih and impor the new file to the game. - This why we can get the correct Englsih and play the game in our native Language. 
+
 Tech
 - Python 
 
